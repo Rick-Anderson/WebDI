@@ -4,7 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.ConfigureServices(services =>
 {
-    services.TryAddSingleton<IService, Service1>();
+    services.TryAddSingleton<IService1, Service1>();
 });
 
 builder.Services.TryAddSingleton<IService2, Service2>();
@@ -14,7 +14,7 @@ builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
-Console.WriteLine(app.Services.GetRequiredService<IService>());
+Console.WriteLine(app.Services.GetRequiredService<IService1>());
 Console.WriteLine(app.Services.GetRequiredService<IService2>());
 
 if (!app.Environment.IsDevelopment())
@@ -34,7 +34,7 @@ app.MapRazorPages();
 
 app.Run();
 
-class Service1 : IService
+class Service1 : IService1
 {
     public void WriteMessage(string message)
     {
@@ -50,7 +50,7 @@ class Service2 : IService2
     }
 }
 
-public interface IService
+public interface IService1
 {
     void WriteMessage(string message);
 }
