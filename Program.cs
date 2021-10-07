@@ -38,7 +38,7 @@ class Service1 : IService
 {
     public void WriteMessage(string message)
     {
-        Console.WriteLine($"MyDependency.WriteMessage Message: {message}");
+        Console.WriteLine($"Service1.WriteMessage Message: {message}");
     }
 }
 
@@ -46,7 +46,7 @@ class Service2 : IService2
 {
     public void WriteMessage(string message)
     {
-        Console.WriteLine($"MyDependency.WriteMessage Message: {message}");
+        Console.WriteLine($"Service2.WriteMessage Message: {message}");
     }
 }
 
